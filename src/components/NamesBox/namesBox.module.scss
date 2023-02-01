@@ -1,0 +1,20 @@
+.namesBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+
+        margin-right: 50px;
+
+        font-size: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

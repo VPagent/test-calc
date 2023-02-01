@@ -1,0 +1,25 @@
+.table {
+  display: flex;
+  justify-content: center;
+
+  border-bottom: 5px solid black;
+  &_column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+
+    margin-right: 50px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &_item {
+    display: block;
+    width: 20px;
+    height: 40px;
+
+    background-color: black;
+  }
+}
+
