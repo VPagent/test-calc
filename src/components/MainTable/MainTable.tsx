@@ -1,10 +1,14 @@
 import React, { ChangeEvent, useState } from "react";
+import Container from "../Container";
 import Graphics from "../Graphics";
 import s from './mainTable.module.scss';
 
+
 const MainTable: React.FC = () => {
     const [storage, setStorage] = useState(100);
-    const [transfer, setTransfer] = useState(400);
+  const [transfer, setTransfer] = useState(400);
+  
+  
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         
@@ -18,9 +22,10 @@ const MainTable: React.FC = () => {
         
   };
   return (
-    <div>
+    <section className={s.section}>
+    <Container>
+    <div className={s.wrapper}>
       <Graphics storage={ storage } transfer={ transfer } />
-      <p> Main Table</p>
           <div className={s.inputBox}>
               <label className={s.label}>
                   Storage: {storage} GB
@@ -46,7 +51,9 @@ const MainTable: React.FC = () => {
         </label>
       </div>
       
-    </div>
+      </div>
+      </Container>
+      </section>
   );
 };
 

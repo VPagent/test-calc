@@ -34,11 +34,6 @@ export const calcVultr = (storage: number, transfer: number): number => {
     return result < 5 ? 5 : Number(result.toFixed(2))
 }
 
-export const calcPercent = (num: number): number => {
-    const result = (150 / 100) * num
-    return result
-}
-
 export const findLowerPrice = (num1: number, num2: number, num3: number, num4: number): string => {
     const result = Math.min(num1, num2, num3, num4)
     switch (result) {

@@ -2,13 +2,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   calcBackBlaze,
   calcBunny,
-  calcPercent,
   calcScaleWay,
   calcVultr,
   findLowerPrice,
 } from "../../halpers/costsCalc";
 import NamesBox from "../NamesBox";
 import s from "./graphics.module.scss";
+import { useMediaQuery } from 'react-responsive'
+import { smallStyle } from "../../halpers/stylesCreator";
 
 type Props = {
   storage: number;
@@ -35,6 +36,9 @@ const Graphics: React.FC<Props> = ({ storage, transfer }) => {
     () => calcVultr(storage, transfer),
     [storage, transfer]
   );
+  const isBigScreen = useMediaQuery({
+    query: '(min-width: 550px)'
+  })
 
   useEffect(() => {
     setMinPrice(findLowerPrice(backblaze, bunny, scaleway, vultr));
@@ -57,51 +61,34 @@ const Graphics: React.FC<Props> = ({ storage, transfer }) => {
 
   return (
     <div className={s.wrapper}>
-      <h2>Graphics</h2>
       <div className={s.table}>
         <div className={s.table_column}>
           <span
             className={s.table_item}
-            style={{
-              height: `${calcPercent(backblaze)}%`,
-              backgroundColor: `${
-                minPrice === "backblaze" ? "red" : "#504444"
-              }`,
-            }}
+            style={smallStyle("backblaze", minPrice, backblaze, "red", isBigScreen)}
           ></span>
           <p className={s.table_prices}>{backblaze}$</p>
         </div>
         <div className={s.table_column}>
           <span
             className={s.table_item}
-            style={{
-              height: `${calcPercent(bunny)}%`,
-              backgroundColor: `${minPrice === "bunny" ? "orange" : "#504444"}`,
-            }}
+            style={smallStyle("bunny", minPrice, bunny,  "orange", isBigScreen)}
           ></span>
           <p className={s.table_prices}>{bunny}$</p>
         </div>
         <div className={s.table_column}>
           <span
             className={s.table_item}
-            style={{
-              height: `${calcPercent(scaleway)}%`,
-              backgroundColor: `${
-                minPrice === "scaleway" ? "pink" : "#504444"
-              }`,
-            }}
+            style={smallStyle("scaleway", minPrice, scaleway, "pink", isBigScreen)}
           ></span>
           <p className={s.table_prices}>
-            {scaleway < 0.0 ? "Free" : scaleway + `$`}
+            {scaleway < 0.00 ? "Free" : scaleway + `$`}
           </p>
         </div>
         <div className={s.table_column}>
           <span
             className={s.table_item}
-            style={{
-              height: `${calcPercent(vultr)}%`,
-              backgroundColor: `${minPrice === "vultr" ? "blue" : "#504444"}`,
-            }}
+            style={smallStyle("vultr", minPrice, vultr, "blue", isBigScreen)}
           ></span>
           <p className={s.table_prices}>{vultr}$</p>
         </div>
@@ -112,4 +99,3 @@ const Graphics: React.FC<Props> = ({ storage, transfer }) => {
 };
 
 export default Graphics;
-/* eslint-disable */

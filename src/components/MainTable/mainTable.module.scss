@@ -1,9 +1,22 @@
 
+.section{
+    padding-top: 30px;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
 
+    @media screen and (min-width: 550px){
+        flex-direction: column-reverse;
+    }
+}
 .inputBox{
-    border: 1px solid black;
-    border-radius: 10px;
+    margin-top: 20px;
     padding: 10px;
+
+    background-color: #897777;
+    border: 1px solid #504444;
+    border-radius: 10px;
 }
 .label{
     display: flex;

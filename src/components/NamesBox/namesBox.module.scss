@@ -2,6 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #504444;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    background-color: #897777;
+    @media screen and (min-width: 550px) {
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100px;
+        
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 0;
+
+    }
 
     &_name {
         display: flex;
@@ -9,12 +28,58 @@
         align-items: center;
         flex-direction: column-reverse;
 
-        margin-right: 50px;
+        margin-right: 22px;
 
         font-size: 10px;
+        @media screen and (min-width: 550px) {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
 
+            margin-right: 0;
+            margin-bottom: 28px;
+
+        }
+        
         &:last-child {
             margin-right: 0;
+            @media screen and (min-width: 550px) {
+                margin-bottom: 0;
+            }
         }
+        &_title{
+            margin: 5px 0;
+            font-weight: bold;
+            @media screen and (min-width: 550px) {
+                font-size: 15px;
+            }
+        }
+        &_controls{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
+    &_icon{
+        display: block;
+        width: 50px;
+        height: auto;
+        @media screen and (min-width: 550px) {
+            width: 80px;
+        }
+    }
+    &_form{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    &_label{
+        display: flex;
+        flex-direction: column;
+        margin-right: 5px;
+    }
+    &_input{
+        margin-top: 5px;
     }
 }

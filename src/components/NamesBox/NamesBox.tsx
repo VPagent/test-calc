@@ -1,4 +1,5 @@
 import React, { ChangeEvent  } from 'react'
+import { icons } from '../../infoOfCompanies/info'
 import s from './namesBox.module.scss'
 
 type Props = {
@@ -13,40 +14,46 @@ const NamesBox: React.FC<Props> = ({ set }) => {
     return (
         <div className={s.namesBox}>
         <div className={s.namesBox_name}>
-                <p>Backblaze</p>
-                <span className={s.namesBox_icon}>Icon</span>
+                <p className={s.namesBox_name_title}>Backblaze</p>
+          <img src={icons.backblaze} alt="backblasze" className={s.namesBox_icon} />
         </div>
         <div className={s.namesBox_name}>
-                <p>Bunny</p>
-                <span className={s.namesBox_icon}>Icon</span>
-                <form >
-            <label>
+          <div className={s.namesBox_name_controls}>
+            <p className={s.namesBox_name_title}>Bunny</p>
+            <form className={s.namesBox_form} >
+            <label className={s.namesBox_label}>
               HDD
-              <input onChange={handleChange} type="radio" defaultChecked value="hdd" name="choise" />
+              <input className={s.namesBox_input}onChange={handleChange} type="radio" defaultChecked value="hdd" name="choise" />
             </label>
-            <label>
+            <label className={s.namesBox_label}>
               SSD
-              <input onChange={handleChange} type="radio" value="ssd" name="choise" />
+              <input className={s.namesBox_input}onChange={handleChange} type="radio" value="ssd" name="choise" />
             </label>
-                </form>
+                </form>     
+          </div>
+          <img src={icons.bunny} alt="bunny" className={s.namesBox_icon}/>
+                
         </div>
         <div className={s.namesBox_name}>
-                <p>Scaleway</p>
-                <span className={s.namesBox_icon}>Icon</span>
-                <form>
-            <label>
+          <div className={s.namesBox_name_controls}>
+            <p className={s.namesBox_name_title}>Scaleway</p>
+          <form className={s.namesBox_form}>
+            <label className={s.namesBox_label}>
               Multi
-              <input onChange={handleChange} type="radio" defaultChecked value="multi" name="choise2" />
+              <input className={s.namesBox_input}onChange={handleChange} type="radio" defaultChecked value="multi" name="choise2" />
             </label>
-            <label>
+            <label className={s.namesBox_label}>
               Single
-              <input onChange={handleChange} type="radio" value="single" name="choise2" />
+              <input className={s.namesBox_input}onChange={handleChange} type="radio" value="single" name="choise2" />
             </label>
                 </form>
+                
+          </div>
+          <img src={icons.scaleway} alt="scaleway" className={s.namesBox_icon}/> 
         </div>
         <div className={s.namesBox_name}>
-                <p>Vultr</p>
-                <span className={s.namesBox_icon}>Icon</span>
+                <p className={s.namesBox_name_title}>Vultr</p>
+          <img src={icons.vultr} alt="vultr" className={s.namesBox_icon}/>
         </div>
       </div>
     )
