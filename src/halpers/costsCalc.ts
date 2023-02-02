@@ -16,7 +16,7 @@ export const calcBunny = (storage: number, transfer: number, option: string): nu
     return result > 10 ? 10 : Number(result.toFixed(2))
 }
 
-export const calcScaleWay = (storage: number, transfer: number, option: string): number  | string => {
+export const calcScaleWay = (storage: number, transfer: number, option: string): number => {
     let result = 0
     if (storage < 75 && transfer < 75) {
         return result
@@ -32,4 +32,25 @@ export const calcScaleWay = (storage: number, transfer: number, option: string):
 export const calcVultr = (storage: number, transfer: number): number => {
     const result = (storage * 0.01) + (transfer * 0.01)
     return result < 5 ? 5 : Number(result.toFixed(2))
+}
+
+export const calcPercent = (num: number): number => {
+    const result = (150 / 100) * num
+    return result
+}
+
+export const findLowerPrice = (num1: number, num2: number, num3: number, num4: number): string => {
+    const result = Math.min(num1, num2, num3, num4)
+    switch (result) {
+        case(num1):
+            return "backblaze"
+        case (num2):
+            return "bunny"
+        case(num3):
+            return "scaleway"
+        case (num4):
+            return "vultr"
+        default: console.log("error in case")
+    }
+    return "error"
 }
